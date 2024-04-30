@@ -61,3 +61,8 @@ input {
 button {
   margin-top: 10px;
 }
+/* Style invalid inputs with a red border */
+/* input:invalid {
+  border-color: red; 
+}
+*/

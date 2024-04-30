@@ -25,9 +25,9 @@ function App() {
     setShowTooltip(false);
     const { name, value } = e.target;
     if (name === 'firstName') {
-      setFirstName(value);
+      setFirstName(value.replace(/[^a-zA-Z]/g, '')); // Replace non-alphabetic characters
     } else {
-      setLastName(value);
+      setLastName(value.replace(/[^a-zA-Z]/g, '')); // Replace non-alphabetic characters
     }
   };
 
@@ -44,10 +44,11 @@ function App() {
               value={firstName}
               onChange={handleInputChange}
               required // Make the input field required
+              pattern="[A-Za-z]+" // Accept only alphabetic characters
             />
           </label>
           {showTooltip && (
-            <span className="tooltip show">⚠️ Please fill out both fields before submitting.</span>
+            <span className="tooltip show">⚠️ Please fill out this field.</span>
           )}
         </div>
         <div className="input-container">
@@ -59,6 +60,7 @@ function App() {
               value={lastName}
               onChange={handleInputChange}
               required // Make the input field required
+              pattern="[A-Za-z]+" // Accept only alphabetic characters
             />
           </label>
         </div>
