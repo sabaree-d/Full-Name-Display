@@ -1,54 +1,63 @@
-body {
-  font-family: Arial, sans-serif;
-  margin: 0;
-  padding: 0;
-}
-
-.container {
-  width: 50%;
-  margin: 0 auto;
-  padding: 20px;
+.App {
+  text-align: center;
+  margin-top: 50px;
 }
 
 form {
-  margin-bottom: 20px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.input-container {
+  position: relative;
 }
 
 label {
-  display: block;
-  margin-bottom: 5px;
+  margin-bottom: 10px;
 }
 
 input {
-  padding: 8px;
-  margin-bottom: 10px;
-  width: 100%;
-}
-
-button {
-  padding: 10px 20px;
-  background-color: #007bff;
-  color: #fff;
-  border: none;
-  cursor: pointer;
-}
-
-button:disabled {
-  background-color: #ccc;
-  cursor: not-allowed;
-}
-
-.error {
-  color: red;
-  margin-top: 5px;
-}
-
-.full-name-display {
-  margin-top: 20px;
+  margin-left: 10px;
 }
 
 .tooltip {
-  display: inline-block;
-  color: red;
-  margin-left: 5px;
+  position: absolute;
+  background-color: white;
+  border: 1px solid orange;
+  padding: 5px;
+  border-radius: 5px;
+  bottom: -45px;
+  left: calc(50% - 70px); /* Adjust as necessary */
+  visibility: hidden;
+  z-index: 999;
+}
+
+.tooltip.show {
+  visibility: visible;
+}
+
+.tooltip::before {
+  content: '';
+  position: absolute;
+  top: 50%;
+  left: -15px; /* Adjust to position the icon */
+  width: 20px; /* Adjust the size of the icon */
+  height: 20px; /* Adjust the size of the icon */
+  background-color: orange;
+  border-radius: 3px;
+}
+
+.tooltip::before::after {
+  content: "!";
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  font-weight: bold;
+  color: white;
+}
+
+button {
+  margin-top: 10px;
 }
